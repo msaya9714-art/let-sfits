@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AYOUTFIT STORE</title>
+  <style>
+    body {font-family: Arial; padding:20px; background:#f5f5f5;}
+    input {width:100%; padding:10px; margin-bottom:20px;}
+    .grid {display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    .card {background:#fff; padding:10px; border-radius:10px; text-align:center;}
+    img {width:100%; border-radius:10px;}
+  </style>
+</head>
+
+<body>
+
+<h2>🔥 AYOUTFIT STORE 🔥</h2>
+<p>Ketik kode produk 👇</p>
+
+<input type="text" id="search" placeholder="Cari kode..." onkeyup="searchProduct()">
+
+<div class="grid" id="productList">
+
+  <div class="card" data-code="777">
+    <a href="LINK_AFFILIATE_1">
+      <img src="https://via.placeholder.com/150">
+      <p>777 - Jaket Keren</p>
+    </a>
+  </div>
+
+  <div class="card" data-code="778">
+    <a href="LINK_AFFILIATE_2">
+      <img src="https://via.placeholder.com/150">
+      <p>778 - Hoodie</p>
+    </a>
+  </div>
+
+  <div class="card" data-code="779">
+    <a href="LINK_AFFILIATE_3">
+      <img src="https://via.placeholder.com/150">
+      <p>779 - Jersey</p>
+    </a>
+  </div>
+
+</div>
+
+<script>
+function searchProduct() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    let code = card.getAttribute("data-code");
+    if(code.includes(input)){
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
